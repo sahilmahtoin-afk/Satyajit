@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Modern Dentist Website with appointment booking, dental services, testimonials, pricing, and contact details.">
+  <meta name="keywords" content="Dentist, Dental Clinic, Teeth Cleaning, Braces, Dental Implants, Dentist Website">
+  <meta name="author" content="Dental Clinic">
+  <title>SmileCare Dental Clinic</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f5f9ff;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    header {
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0f6fff;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #0f6fff;
+    }
+
+    .hero {
+      padding: 80px 0;
+      background: linear-gradient(to right, #eaf4ff, #ffffff);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      color: #0f172a;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      color: #475569;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 10px;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #0f6fff;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #0057d8;
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: #0f6fff;
+      border: 2px solid #0f6fff;
+    }
+
+    .btn-secondary:hover {
+      background: #0f6fff;
+      color: white;
+    }
+
+    .hero img {
+      width: 100%;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #64748b;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card i {
+      font-size: 40px;
+      color: #0f6fff;
+      margin-bottom: 15px;
+    }
+
+    .about-content,
+    .contact-grid,
+    .booking-grid,
+    .pricing-grid,
+    .blog-grid,
+    .gallery-grid,
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      align-items: center;
+    }
+
+    .about-content img,
+    .gallery-grid img,
+    .blog-card img {
+      width: 100%;
+      border-radius: 20px;
+    }
+
+    form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    form input,
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border: 1px solid #dbeafe;
+      border-radius: 12px;
+      outline: none;
+    }
+
+    .testimonial-card,
+    .pricing-card,
+    .faq-item,
+    .blog-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .stars {
+      color: #facc15;
+      margin-bottom: 10px;
+    }
+
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .gallery-grid img {
+      height: 250px;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.03);
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+    }
+
+    .pricing-card h3 {
+      color: #0f6fff;
+      margin-bottom: 10px;
+    }
+
+    .contact-info p {
+      margin-bottom: 15px;
+    }
+
+    iframe {
+      width: 100%;
+      border: 0;
+      border-radius: 20px;
+      min-height: 300px;
+    }
+
+    footer {
+      background: #0f172a;
+      color: white;
+      padding: 50px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-grid a {
+      display: block;
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+
+    .footer-grid a:hover {
+      color: white;
+    }
+
+    .social-icons a {
+      color: white;
+      margin-right: 15px;
+      font-size: 20px;
+    }
+
+    .floating-whatsapp,
+    .floating-book {
+      position: fixed;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      z-index: 999;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .floating-whatsapp {
+      background: #25D366;
+      bottom: 90px;
+    }
+
+    .floating-book {
+      background: #0f6fff;
+      bottom: 20px;
+    }
+
+    @media(max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-text h1 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">SmileCare Dental</div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#booking">Appointment</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Your Smile Deserves The Best Dental Care</h1>
+      <p>Professional dental services with advanced technology, expert dentists, and a caring team dedicated to keeping your smile healthy and beautiful.</p>
+      <a href="#booking" class="btn btn-primary">Book Appointment</a>
+      <a href="tel:+919999999999" class="btn btn-secondary">Call Now</a>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09" alt="Dentist Clinic">
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>About Us</h2>
+      <p>Trusted dental care with years of experience and patient satisfaction.</p>
+    </div>
+    <div class="about-content">
+      <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" alt="Dentist">
+      <div>
+        <h3>Experienced & Caring Dental Team</h3>
+        <p>Our clinic has been serving patients for more than 10 years with modern dental treatments, expert consultation, and compassionate care. Our mission is to create confident smiles through affordable and high-quality dental services.</p>
+        <p><strong>Qualifications:</strong> BDS, MDS, Cosmetic Dentistry Specialist</p>
+        <p><strong>Experience:</strong> 10+ Years</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Services</h2>
+    </div>
+    <div class="cards">
+      <div class="card"><i class="fa-solid fa-tooth"></i><h3>Teeth Cleaning</h3></div>
+      <div class="card"><i class="fa-solid fa-star"></i><h3>Teeth Whitening</h3></div>
+      <div class="card"><i class="fa-solid fa-teeth-open"></i><h3>Braces / Aligners</h3></div>
+      <div class="card"><i class="fa-solid fa-syringe"></i><h3>Dental Implants</h3></div>
+      <div class="card"><i class="fa-solid fa-stethoscope"></i><h3>Root Canal Treatment</h3></div>
+      <div class="card"><i class="fa-solid fa-user-doctor"></i><h3>Tooth Extraction</h3></div>
+      <div class="card"><i class="fa-solid fa-baby"></i><h3>Pediatric Dentistry</h3></div>
+      <div class="card"><i class="fa-solid fa-face-smile"></i><h3>Cosmetic Dentistry</h3></div>
+      <div class="card"><i class="fa-solid fa-truck-medical"></i><h3>Emergency Dental Care</h3></div>
+      <div class="card"><i class="fa-solid fa-teeth"></i><h3>Dentures</h3></div>
+    </div>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="container">
+    <div class="section-title">
+      <h2>Book Appointment</h2>
+    </div>
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="date" required>
+      <input type="time" required>
+      <select>
+        <option>Select Treatment Type</option>
+        <option>Teeth Cleaning</option>
+        <option>Teeth Whitening</option>
+        <option>Root Canal</option>
+        <option>Braces</option>
+      </select>
+      <textarea rows="5" placeholder="Your Message"></textarea>
+      <button type="submit" class="btn btn-primary">Submit Appointment</button>
+    </form>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Patient Testimonials</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>Excellent service and friendly staff. My teeth whitening results were amazing.</p>
+        <h4>- Rahul Sharma</h4>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>The dentist explained everything clearly and made me feel comfortable.</p>
+        <h4>- Priya Verma</h4>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>Very modern clinic with professional care and affordable pricing.</p>
+        <h4>- Arjun Das</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Gallery</h2>
+    </div>
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe" alt="Clinic Image">
+      <img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce" alt="Dentist Image">
+      <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787" alt="Dental Care">
+      <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db" alt="Smile Transformation">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>FAQs</h2>
+    </div>
+    <div class="faq-item">
+      <h4>How much does a consultation cost?</h4>
+      <p>Consultation starts from ₹500 depending on treatment type.</p>
+    </div>
+    <div class="faq-item">
+      <h4>How long does teeth whitening take?</h4>
+      <p>Usually 45 to 60 minutes depending on the treatment plan.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Do you provide emergency dental care?</h4>
+      <p>Yes, we provide emergency dental services for pain, accidents, and broken teeth.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <div class="section-title">
+      <h2>Pricing</h2>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Basic Consultation</h3>
+        <p>₹500</p>
+      </div>
+      <div class="pricing-card">
+        <h3>Teeth Whitening</h3>
+        <p>₹4,999</p>
+      </div>
+      <div class="pricing-card">
+        <h3>Root Canal Treatment</h3>
+        <p>₹7,500</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Emergency Dental Care</h2>
+    </div>
+    <div class="card">
+      <h3>Need Immediate Help?</h3>
+      <p>Call our emergency dental support team anytime for urgent treatment.</p>
+      <a href="tel:+919999999999" class="btn btn-primary">Emergency Call</a>
+    </div>
+  </div>
+</section>
+
+<section id="blog">
+  <div class="container">
+    <div class="section-title">
+      <h2>Dental Care Blog</h2>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <img src="https://images.unsplash.com/photo-1600170311833-c2cf5280ce49" alt="Blog">
+        <h3>5 Tips For Healthy Teeth</h3>
+      </div>
+      <div class="blog-card">
+        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be" alt="Blog">
+        <h3>How To Choose The Right Toothbrush</h3>
+      </div>
+      <div class="blog-card">
+        <img src="https://images.unsplash.com/photo-1588776814546-ec7e9c97bda4" alt="Blog">
+        <h3>Foods That Improve Oral Health</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p><strong>Address:</strong> 123 Smile Street, Chennai, India</p>
+        <p><strong>Phone:</strong> +91 99999 99999</p>
+        <p><strong>Email:</strong> info@smilecare.com</p>
+        <p><strong>Working Hours:</strong> Mon-Sat: 9 AM - 8 PM</p>
+      </div>
+      <iframe src="https://maps.google.com/maps?q=chennai&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>SmileCare Dental</h3>
+        <p>Professional dental care for healthy and beautiful smiles.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h3>Policies</h3>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Refund Policy</a>
+      </div>
+      <div>
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;">© 2026 SmileCare Dental Clinic. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/919999999999" class="floating-whatsapp"><i class="fab fa-whatsapp"></i></a>
+<a href="#booking" class="floating-book"><i class="fa-solid fa-calendar-check"></i></a>
+
+</body>
+</html>
